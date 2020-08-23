@@ -24,6 +24,10 @@
 
 <h3>
   <a href="${pageContext.request.contextPath}/student/allStudent">点击进入列表页</a>
+  <form action="${pageContext.request.contextPath}/file/upload" enctype="multipart/form-data" method="post">
+    <input type="file" name="file"/>
+    <input type="submit" value="upload">
+  </form>
 </h3>
 </body>
 </html>
