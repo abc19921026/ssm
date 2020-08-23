@@ -26,7 +26,7 @@
     <!-- 4.扫描web相关的bean -->
     <context:component-scan base-package="com.ben.controller" />
 
-    <!--关于拦截器的配置-->
+    <!--关于拦截器的配置，如果有多个拦截器，执行顺序按照配置的先后顺序-->
     <mvc:interceptors>
         <mvc:interceptor>
             <!--/** 包括路径及其子路径-->
