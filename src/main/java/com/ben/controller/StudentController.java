@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -51,6 +52,28 @@ public class StudentController {
     public String deleteBook(int id) {
         studentService.deleteStudent(id);
         return "redirect:/student/allStudent";
+    }
+
+    @RequestMapping("/toLogin")
+    public String toLogin(){
+        return "login";
+    }
+
+    //登陆提交
+    @RequestMapping("/login")
+    public String login(HttpSession session, String username, String pwd) throws Exception {
+        // 向session记录用户身份信息
+        System.out.println("接收前端==="+username);
+        session.setAttribute("user", username);
+        return "redirect:/student/allStudent";
+    }
+
+    //退出登陆
+    @RequestMapping("logout")
+    public String logout(HttpSession session) throws Exception {
+        // session 过期
+        session.invalidate();
+        return "login";
     }
 
 }
